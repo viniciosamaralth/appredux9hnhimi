@@ -1,22 +1,12 @@
 import React from 'react';
 import './style.css'
+import Header from './components/Header';
+
 function Home() {
     return ( 
         <div>
-            <header className="header">
-                <div className="toolbar">
-                     <div>
-                        <span>PROGRAMA DO VINI</span>
-                     </div>
-                    
-                    <div>
-                        <button>Novo Post</button>
-                        <span>img1</span>
-                        <span>img2</span>
-                    </div>
-                </div>
-            </header>
 
+          <Header/>
 
 
             <main className='main'>
