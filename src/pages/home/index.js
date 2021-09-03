@@ -19,6 +19,9 @@ const useStyle = makeStyles({
   toolbar: {
     minHeight: 64,
   },
+  box: {
+    display: "flex",
+  },
 });
 
 function Home() {
@@ -31,7 +34,7 @@ function Home() {
       <div className={classes.toolbar}></div>
       <main className={classes.main}>
         <Container maxWidth="lg">
-          <box display="flex">
+          <box className={classes.box} display="flex">
             <NavBar />
             <Feed />
           </box>

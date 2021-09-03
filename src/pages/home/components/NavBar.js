@@ -9,6 +9,7 @@ const useStyle = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
     width: 275,
+    marginRight: 16,
   },
   button: {
     width: "100%",
