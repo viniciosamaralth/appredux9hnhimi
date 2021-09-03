@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/styles";
 import Header from "./components/Header";
 import Feed from "./components/Feed";
 import NavBar from "./components/NavBar";
+import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 
 const useStyle = makeStyles({
   root: {
@@ -12,9 +14,10 @@ const useStyle = makeStyles({
   },
   main: {
     height: "100vh",
-    display: "flex",
-    width: "1200px",
-    margin: "0 auto",
+    padding: 24,
+  },
+  toolbar: {
+    minHeight: 64,
   },
 });
 
@@ -25,10 +28,14 @@ function Home() {
     <div className={classes.root}>
       <Header />
 
-      <div className="toolbar"></div>
+      <div className={classes.toolbar}></div>
       <main className={classes.main}>
-        <NavBar />
-        <Feed />
+        <Container maxWidth="lg">
+          <box display="flex">
+            <NavBar />
+            <Feed />
+          </box>
+        </Container>
       </main>
     </div>
   );
