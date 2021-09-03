@@ -23,7 +23,7 @@ const posts = [
     date: "April 7, 2020",
     description: "TESTE PARA FEED DE NOTICIAS",
     hasgtags: "#dotnet, #javascript, #reactjs,",
-    image: "/images/posts/post9.jpeg",
+    image: "/images/posts/post9.jpg",
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const posts = [
     date: "April 7, 2020",
     description: "TESTE PARA FEED DE NOTICIAS",
     hasgtags: "#dotnet, #javascript, #reactjs,",
-    image: "/images/posts/post9.jpeg",
+    image: "/images/posts/postagem.jpg",
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ const posts = [
     date: "April 7, 2020",
     description: "TESTE PARA FEED DE NOTICIAS",
     hasgtags: "#dotnet, #javascript, #reactjs,",
-    image: "/images/posts/post9.jpeg",
+    image: "/images/posts/post9.jpg",
   },
 ];
 
