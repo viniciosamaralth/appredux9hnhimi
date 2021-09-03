@@ -13,8 +13,14 @@ import {
   Typography,
   Avatar,
   CardActionArea,
+  ListSubheader,
+  IconButton,
 } from "@material-ui/core/";
-import ListSubheader from "@material-ui/core/ListSubheader";
+import {
+  Favorite as FavoriteIcon,
+  Bookmark as BookmarkIcon,
+  Message as MessageIcon,
+} from "@material-ui/icons/";
 import { Tag } from "react-feather";
 
 const useStyle = makeStyles((theme) => ({
@@ -37,6 +43,12 @@ const useStyle = makeStyles((theme) => ({
     height: 300,
     width: "100%",
     maxWidth: "100%",
+  },
+  content: {
+    padding: 0,
+  },
+  favorite: {
+    marginLeft: "auto",
   },
 }));
 
@@ -63,7 +75,7 @@ function PostCard({ post }) {
         }
       />
 
-      <CardContent>
+      <CardContent className={Classes.content}>
         <Typography className={Classes.message} variant="body1">
           {post.hasgtags}
         </Typography>
@@ -71,7 +83,31 @@ function PostCard({ post }) {
           <img src={post.image} className={Classes.image} alt="img" />
         </CardActionArea>
       </CardContent>
-      <CardActions></CardActions>
+      <CardActions disableSpacing>
+        <IconButton aria-label="like">
+          <FavoriteIcon />
+          <Typography
+            style={{ cursor: "pointer" }}
+            color="textSecondary"
+            variant="body2"
+          >
+            {10}
+          </Typography>
+        </IconButton>
+        <IconButton aria-label="comment">
+          <MessageIcon />
+          <Typography
+            className={Classes.reactions}
+            color="textSecondary"
+            variant="body2"
+          >
+            {30}
+          </Typography>
+        </IconButton>
+        <IconButton aria-label="favorite" className={Classes.favorite}>
+          <BookmarkIcon />
+        </IconButton>
+      </CardActions>
     </Card>
   );
 }
