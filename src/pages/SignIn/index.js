@@ -58,7 +58,10 @@ function SignIn() {
     //Chamada para a API, se retorno OK direciona, senao exibe erro
 
     try {
-      const response = await axios.post("/api/home/login");
+      const response = await axios.post("/api/home/login", {
+        email: "vinicios@agilsoft.com.br",
+        password: "1",
+      });
       console.log(response);
     } catch (error) {
       console.error(error);
