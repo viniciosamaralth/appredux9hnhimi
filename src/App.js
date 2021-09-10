@@ -1,12 +1,25 @@
 import React from "react";
-import Home from "./pages/Home";
 import { ThemeProvider } from "@material-ui/core/styles";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
 import theme from "./theme";
+import NotFound from "./pages/NotFound";
 
 function App() {
+  // console.log(window.location.href);
+  // const url = window.location.href;
+
   return (
     <ThemeProvider theme={theme}>
-      <Home />
+      {/* {url === "http://localhost:3000/" ? <Home /> : <SignIn />} */}
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/sign-in" component={SignIn}></Route>
+          <Route exact path="*" component={NotFound}></Route>
+        </Switch>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
