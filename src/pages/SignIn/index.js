@@ -12,6 +12,8 @@ import {
 import { LockOutlined } from "@material-ui/icons";
 import { AlignCenter } from "react-feather";
 import { useHistory } from "react-router-dom";
+//import axios from "axios";
+import axios from "../../utils/axios";
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -51,6 +53,17 @@ function Copyright() {
 function SignIn() {
   const classes = useStyle();
   const history = useHistory();
+
+  async function handleSignIn() {
+    //Chamada para a API, se retorno OK direciona, senao exibe erro
+
+    try {
+      const response = await axios.post("/api/home/login");
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
     <Grid container className={classes.root}>
@@ -126,7 +139,7 @@ function SignIn() {
               variant="contained"
               color="primary"
               className={classes.button}
-              onClick={() => history.push("/")}
+              onClick={handleSignIn}
             >
               Entrar
             </Button>

@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import theme from "./theme";
 import NotFound from "./pages/NotFound";
+import "./mock";
 
 function App() {
   // console.log(window.location.href);
