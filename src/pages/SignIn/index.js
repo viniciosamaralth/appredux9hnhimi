@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   makeStyles,
   Typography,
@@ -8,10 +8,12 @@ import {
   TextField,
   Button,
   Link,
+  useTheme,
+  FormHelperText,
 } from "@material-ui/core";
-import { LockOutlined } from "@material-ui/icons";
+import { LockOutlined, NavigateBefore } from "@material-ui/icons";
 import { AlignCenter } from "react-feather";
-import { useHistory } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 //import axios from "axios";
 import axios from "../../utils/axios";
 import authService from "../../services/authService";
@@ -54,13 +56,19 @@ function Copyright() {
 function SignIn() {
   const classes = useStyle();
   const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, seterrorMessage] = useState();
+  //const navigate = useNavigate();
 
   async function handleSignIn() {
     //Chamada para a API, se retorno OK direciona, senao exibe erro
     try {
-      await authService.signIn("vinicios@agilsoft.com.br", "1");
+      await authService.signIn(email, password);
+      //Se retornar http 200
+      history.push("/");
     } catch (error) {
-      console.error(error.response);
+      seterrorMessage(error.response.data.message);
     }
   }
 
@@ -121,6 +129,8 @@ function SignIn() {
               name="email"
               autoComplete="email"
               autofocus
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
             <TextField
               variant="outlined"
@@ -132,6 +142,8 @@ function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
             />
             <Button
               fullWidth
@@ -142,6 +154,9 @@ function SignIn() {
             >
               Entrar
             </Button>
+            {errorMessage && (
+              <FormHelperText error>{errorMessage}</FormHelperText>
+            )}
             <Grid container>
               <Grid item style={{ marginRight: "5%" }}>
                 <Link>Esqueceu a sua senha?</Link>
