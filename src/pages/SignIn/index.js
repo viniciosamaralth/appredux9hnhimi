@@ -14,6 +14,7 @@ import { AlignCenter } from "react-feather";
 import { useHistory } from "react-router-dom";
 //import axios from "axios";
 import axios from "../../utils/axios";
+import authService from "../../services/authService";
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -56,15 +57,10 @@ function SignIn() {
 
   async function handleSignIn() {
     //Chamada para a API, se retorno OK direciona, senao exibe erro
-
     try {
-      const response = await axios.post("/api/home/login", {
-        email: "vinicios@agilsoft.com.br",
-        password: "1",
-      });
-      console.log(response);
+      await authService.signIn("vinicios@agilsoft.com.br", "1");
     } catch (error) {
-      console.error(error);
+      console.error(error.response);
     }
   }
 
