@@ -7,22 +7,25 @@ import theme from "./theme";
 import NotFound from "./pages/NotFound";
 import GuestRoute from "./routes/GuestRoute";
 import "./mock";
+import { Provider } from "react-redux";
+import store from "./store";
 
 function App() {
   // console.log(window.location.href);
   // const url = window.location.href;
 
   return (
-    <ThemeProvider theme={theme}>
-      {/* {url === "http://localhost:3000/" ? <Home /> : <SignIn />} */}
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home}></Route>
-          <GuestRoute exact path="/sign-in" component={SignIn}></GuestRoute>
-          <Route exact path="*" component={NotFound}></Route>
-        </Switch>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Home}></Route>
+            <GuestRoute exact path="/sign-in" component={SignIn}></GuestRoute>
+            <Route exact path="*" component={NotFound}></Route>
+          </Switch>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
