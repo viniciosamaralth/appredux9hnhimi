@@ -26,8 +26,9 @@ const useStyle = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "none",
-    padding: theme.spacing(2),
+    padding: theme.spacing(-1),
     textAlign: "center",
+    width: "90%",
   },
   avatar: {
     background: theme.palette.primary.main,
@@ -35,9 +36,11 @@ const useStyle = makeStyles((theme) => ({
   },
   button: {
     margintop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
   },
   form: {
     margin: theme.spacing(2, 4),
+    //margin: theme.spacing(2, -2),
   },
 }));
 
@@ -45,7 +48,7 @@ function Copyright() {
   return (
     <Typography variant="body2" align="center">
       {"Copyright ©"}
-      <a color="inherit" href="www.agilsoft.com.br">
+      <a target="_blank" href="http://www.agilsoft.com.br" color="inherit">
         Agilsoft Informatica
       </a>{" "}
       {new Date().getFullYear()}
@@ -88,7 +91,7 @@ function SignIn() {
           className={classes.image}
         />
         ;
-        <Typography
+        {/* <Typography
           style={{
             color: "#CD3333",
             fontSize: 35,
@@ -98,8 +101,8 @@ function SignIn() {
         >
           {" "}
           <strong>AGILSOFT INFORMATICA LTDA !!!</strong>
-        </Typography>
-        <Typography
+        </Typography> */}
+        {/* <Typography
           variant="body2"
           style={{
             color: "#CD3333",
@@ -108,10 +111,10 @@ function SignIn() {
           }}
         >
           AGILSOFT INFORMATICA LTDA
-        </Typography>
+        </Typography> */}
       </Grid>
-      <Grid item md={5}>
-        <Box display="flex" flexDirection="column" alignItems="center" mt={8}>
+      <Grid item container alignItems="center" justifyContent="center" md={5}>
+        <Box display="flex" flexDirection="column" alignItems="center">
           <Avatar className={classes.avatar}>
             <LockOutlined />
           </Avatar>
@@ -157,8 +160,13 @@ function SignIn() {
             {errorMessage && (
               <FormHelperText error>{errorMessage}</FormHelperText>
             )}
-            <Grid container>
-              <Grid item style={{ marginRight: "5%" }}>
+            <Grid
+              container
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Grid item mt={3}>
                 <Link>Esqueceu a sua senha?</Link>
               </Grid>
               <Grid item>

@@ -20,6 +20,7 @@ mock.onPost("/api/home/login").reply((config) => {
     name: "Vinicios Amaral",
     username: "viniciosamaral",
     email: "vinicios@agilsoft.com.br",
+    avatar: "/images/avatars/avatar_vini.png",
   };
 
   return [200, { user }];

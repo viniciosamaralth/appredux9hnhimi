@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import theme from "./theme";
 import NotFound from "./pages/NotFound";
+import GuestRoute from "./routes/GuestRoute";
 import "./mock";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home}></Route>
-          <Route exact path="/sign-in" component={SignIn}></Route>
+          <GuestRoute exact path="/sign-in" component={SignIn}></GuestRoute>
           <Route exact path="*" component={NotFound}></Route>
         </Switch>
       </BrowserRouter>
