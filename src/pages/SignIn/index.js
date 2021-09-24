@@ -17,6 +17,8 @@ import { useHistory, useNavigate } from "react-router-dom";
 //import axios from "axios";
 import axios from "../../utils/axios";
 import authService from "../../services/authService";
+import { useDispatch } from "react-redux";
+import signIn from "../../store/actions/accountActions";
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -62,16 +64,18 @@ function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, seterrorMessage] = useState();
+  const dispatch = useDispatch();
+
   //const navigate = useNavigate();
 
   async function handleSignIn() {
     //Chamada para a API, se retorno OK direciona, senao exibe erro
     try {
-      await authService.signIn(email, password);
-      //Se retornar http 200
+      await dispatch(signIn(email, password));
+
       history.push("/");
     } catch (error) {
-      seterrorMessage(error.response.data.message);
+      //seterrorMessage(error.response.data.message);
     }
   }
 

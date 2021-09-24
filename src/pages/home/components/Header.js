@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -6,6 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { Bell } from "react-feather";
 import Avatar from "@material-ui/core/Avatar";
+import { useSelector } from "react-redux";
 
 const useStyle = makeStyles({
   AppBar: {
@@ -31,7 +32,11 @@ const useStyle = makeStyles({
 
 function Header() {
   const Classes = useStyle();
-  const user = null;
+  const account = useSelector((state) => state);
+
+  useEffect(() => {
+    console.log(account);
+  }, [account]);
 
   return (
     <AppBar position="fixed" color="inherit" className={Classes.AppBar}>
@@ -49,17 +54,8 @@ function Header() {
           <SvgIcon className={Classes.Bell}>
             <Bell></Bell>
           </SvgIcon>
-          <Avatar alt="Avatar" src={user && user.avatar} />
+          <Avatar alt="Avatar" src={account.user && account.user.avatar} />
         </div>
-        {/* <div>
-          <a href="/"> PROGRAMA DO VINI</a>
-          <imput type="text"></imput>
-        </div>
-        <div>
-         
-          <span>img1</span>
-          <span>img2</span>
-        </div> */}
       </Toolbar>
     </AppBar>
   );

@@ -11,7 +11,6 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 function App() {
-  // console.log(window.location.href);
   // const url = window.location.href;
 
   return (
