@@ -9,6 +9,7 @@ import GuestRoute from "./routes/GuestRoute";
 import "./mock";
 import { Provider } from "react-redux";
 import store from "./store";
+import Auth from "./pages/Home/components/Auth";
 
 function App() {
   // const url = window.location.href;
@@ -17,11 +18,13 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <GuestRoute exact path="/sign-in" component={SignIn}></GuestRoute>
-            <Route exact path="*" component={NotFound}></Route>
-          </Switch>
+          <Auth>
+            <Switch>
+              <Route exact path="/" component={Home}></Route>
+              <GuestRoute exact path="/sign-in" component={SignIn}></GuestRoute>
+              <Route exact path="*" component={NotFound}></Route>
+            </Switch>
+          </Auth>
         </BrowserRouter>
       </ThemeProvider>
     </Provider>
