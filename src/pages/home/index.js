@@ -1,7 +1,7 @@
 import React from "react";
 //import './style.css'
 import { makeStyles } from "@material-ui/styles";
-import Header from "./components/Header";
+import Header from "./components/Header/index";
 import Feed from "./components/Feed";
 import NavBar from "./components/NavBar";
 import Container from "@material-ui/core/Container";
