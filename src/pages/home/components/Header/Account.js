@@ -1,14 +1,16 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Avatar, Menu, MenuItem } from "@material-ui/core";
 import { signOut } from "../../../../store/actions/accountActions";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function Account() {
   const account = useSelector((state) => state.account);
   const [isOpen, setOpen] = useState(false);
   const ref = useRef();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const isAuthenticated = !!account.user;
 
@@ -23,8 +25,15 @@ function Account() {
   const handleSignOut = () => {
     handleClose();
     dispatch(signOut());
+    history.push("/sign-in");
+    console.log("TINHA QUE TER IDO PARA A SIGN-IN!!!!");
+
     //logoff no app através de uma action
   };
+
+  useEffect(() => {
+    console.log(history);
+  }, [history]);
 
   return (
     <>
@@ -47,7 +56,7 @@ function Account() {
           <MenuItem>Opção 2</MenuItem>
           <MenuItem>Opção 3</MenuItem>
           <MenuItem>Configurações</MenuItem>
-          <MenuItem onclick={handleSignOut}>Sair</MenuItem>
+          <MenuItem onClick={handleSignOut}>Sair</MenuItem>
         </Menu>
       ) : (
         <Menu
