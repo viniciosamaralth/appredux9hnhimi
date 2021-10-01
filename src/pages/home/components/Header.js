@@ -32,7 +32,7 @@ const useStyle = makeStyles({
 
 function Header() {
   const Classes = useStyle();
-  const account = useSelector((state) => state);
+  const account = useSelector((state) => state.account);
 
   useEffect(() => {
     console.log(account);
@@ -54,7 +54,7 @@ function Header() {
           <SvgIcon className={Classes.Bell}>
             <Bell></Bell>
           </SvgIcon>
-          <Avatar alt="Avatar" src={account.user && account.user.avatar} />
+          <Avatar alt="Avatar" src src={account.user && account.user.avatar} />
         </div>
       </Toolbar>
     </AppBar>

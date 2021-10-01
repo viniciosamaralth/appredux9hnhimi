@@ -18,7 +18,7 @@ import { useHistory, useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 import authService from "../../services/authService";
 import { useDispatch } from "react-redux";
-import signIn from "../../store/actions/accountActions";
+import { signIn } from "../../store/actions/accountActions";
 
 const useStyle = makeStyles((theme) => ({
   root: {

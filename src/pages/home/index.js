@@ -34,10 +34,10 @@ function Home() {
       <div className={classes.toolbar}></div>
       <main className={classes.main}>
         <Container maxWidth="lg">
-          <box className={classes.box} display="flex">
+          <Box className={classes.box} display="flex">
             <NavBar />
             <Feed />
-          </box>
+          </Box>
         </Container>
       </main>
     </div>
