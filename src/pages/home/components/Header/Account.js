@@ -26,7 +26,7 @@ function Account() {
     handleClose();
     dispatch(signOut());
     history.push("/sign-in");
-    console.log("TINHA QUE TER IDO PARA A SIGN-IN!!!");
+    console.log("TINHA QUE TER IDO PARA A SIGN-IN!");
 
     //logoff no app através de uma action
   };
