@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { Button } from "@material-ui/core";
+import { Button, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import { Bell } from "react-feather";
+import Notification from "./Notifications";
 import Account from "./Account";
 import { useSelector } from "react-redux";
+import WritePost from "./WritePost";
 
 const useStyle = makeStyles({
   AppBar: {
@@ -21,12 +21,6 @@ const useStyle = makeStyles({
   userSection: {
     display: "flex",
     alignItems: "Center",
-  },
-  Button: {
-    marginRight: 10,
-  },
-  Bell: {
-    marginRight: 10,
   },
 });
 
@@ -44,17 +38,13 @@ function Header() {
         <img src="/images/logo.png" alt="logo" className={Classes.img} />
         <div className={Classes.grow}></div>
         <div className={Classes.userSection}>
-          <Button
-            color="primary"
-            variant="contained"
-            className={Classes.Button}
-          >
-            Novo Post
-          </Button>
-          <SvgIcon className={Classes.Bell}>
-            <Bell />
-          </SvgIcon>
-          <Account />
+          <WritePost />
+          <Box ml={2}>
+            <Notification />
+          </Box>
+          <Box ml={2}>
+            <Account />
+          </Box>
         </div>
       </Toolbar>
     </AppBar>
