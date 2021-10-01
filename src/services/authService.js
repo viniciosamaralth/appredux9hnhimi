@@ -36,9 +36,15 @@ class AuthService {
     });
   };
 
+  signOut = () => {
+    this.removeToken();
+  };
+
   setToken = (token) => {
     localStorage.setItem("acessToken", token);
   };
+
+  removeToken = () => localStorage.removeItem("acessToken");
 
   getToken = () => localStorage.getItem("acessToken");
 
