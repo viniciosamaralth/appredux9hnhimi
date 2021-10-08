@@ -7,6 +7,7 @@ import Notification from "./Notifications";
 import Account from "./Account";
 import { useSelector } from "react-redux";
 import WritePost from "./WritePost";
+import { useHistory } from "react-router-dom";
 
 const useStyle = makeStyles({
   AppBar: {
@@ -27,7 +28,11 @@ const useStyle = makeStyles({
 function Header() {
   const Classes = useStyle();
   const account = useSelector((state) => state.account);
+  const history = useHistory();
 
+  const handleClick = async () => {
+    history.push("/");
+  };
   // useEffect(() => {
   //   console.log(account);
   // }, [account]);
@@ -35,7 +40,12 @@ function Header() {
   return (
     <AppBar position="fixed" color="inherit" className={Classes.AppBar}>
       <Toolbar>
-        <img src="/images/logo.png" alt="logo" className={Classes.img} />
+        <img
+          src="/images/logo.png"
+          alt="logo"
+          className={Classes.img}
+          onClick={handleClick}
+        />
         <div className={Classes.grow}></div>
         <div className={Classes.userSection}>
           <WritePost />

@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import theme from "./theme";
 import NotFound from "./pages/NotFound";
+import NewPost from "./pages/Post/New";
 import GuestRoute from "./routes/GuestRoute";
 import "./mock";
 import { Provider } from "react-redux";
@@ -22,9 +23,8 @@ function App() {
         <BrowserRouter history={history}>
           <Auth>
             <Switch>
-              <Route exact path="/" component={Home}></Route>
               <GuestRoute exact path="/sign-in" component={SignIn}></GuestRoute>
-              <Route exact path="*" component={NotFound}></Route>
+              <Route path="/" component={Home}></Route>
             </Switch>
           </Auth>
         </BrowserRouter>

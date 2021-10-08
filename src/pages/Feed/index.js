@@ -1,14 +1,35 @@
 import React from "react";
 //import { makeStyles } from "@material-ui/styles";
 import { makeStyles } from "@material-ui/core/styles";
-import { Paper, Button, ListItem, ListItemText } from "@material-ui/core/";
+import {
+  Paper,
+  Button,
+  ListItem,
+  ListItemText,
+  Container,
+  Box,
+} from "@material-ui/core/";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import { Tag } from "react-feather";
-import PostCard from "../../../components/PostCard";
+import PostCard from "../../components/PostCard";
+import NavBar from "./NavBar";
 
-const useStyle = makeStyles((theme) => ({
-  root: {},
-}));
+const useStyle = makeStyles({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  main: {
+    height: "100vh",
+    padding: 24,
+  },
+  toolbar: {
+    minHeight: 64,
+  },
+  box: {
+    display: "flex",
+  },
+});
 
 const posts = [
   {
@@ -56,14 +77,19 @@ const posts = [
 ];
 
 function Feed() {
-  const Classes = useStyle();
+  const classes = useStyle();
 
   return (
-    <div className={Classes.root}>
-      {posts.map((post) => (
-        <PostCard key={post.id} post={post} />
-      ))}
-    </div>
+    <Container maxWidth="lg">
+      <Box className={classes.box} display="flex">
+        <NavBar />
+        <div className={classes.root}>
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+        </div>
+      </Box>
+    </Container>
   );
 }
 
