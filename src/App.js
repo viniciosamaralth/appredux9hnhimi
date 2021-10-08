@@ -10,14 +10,16 @@ import "./mock";
 import { Provider } from "react-redux";
 import store from "./store";
 import Auth from "./pages/Home/components/Auth";
+import { createBrowserHistory } from "history";
 
 function App() {
   // const url = window.location.href;
+  const history = createBrowserHistory();
 
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
+        <BrowserRouter history={history}>
           <Auth>
             <Switch>
               <Route exact path="/" component={Home}></Route>

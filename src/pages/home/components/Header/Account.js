@@ -22,18 +22,14 @@ function Account() {
     setOpen(false);
   };
 
-  const handleSignOut = () => {
+  const handleSignOut = async () => {
     handleClose();
-    dispatch(signOut());
+    await dispatch(signOut());
     history.push("/sign-in");
     console.log("TINHA QUE TER IDO PARA A SIGN-IN!");
 
     //logoff no app através de uma action
   };
-
-  useEffect(() => {
-    console.log(history);
-  }, [history]);
 
   return (
     <>
@@ -67,7 +63,7 @@ function Account() {
           getContentAnchorEl={null}
         >
           <MenuItem>REGISTRAR</MenuItem>
-          <MenuItem>ENTRAR</MenuItem>
+          <MenuItem onClick={() => history.push("/sign-in")}>ENTRAR</MenuItem>
         </Menu>
       )}
     </>
